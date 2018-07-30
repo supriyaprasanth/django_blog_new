@@ -4,11 +4,14 @@
     {% for post in posts %}
         <div class="post">
             <div class="date">
-                {{ post.published_date }}
+                {{ post.created_date }}
+            </div>
+            <div>
+                <h3><b> {{ post.author }}</b></h3>
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
-            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a> <br><br><br>
         </div>
     {% endfor %}
 {% endblock content %}
