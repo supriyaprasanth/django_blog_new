@@ -36,8 +36,7 @@ def post_edit(request, pk):
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
-    
+            post.author = request.user    
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
@@ -47,11 +46,11 @@ def post_edit(request, pk):
 @login_required
 def post_remove(request, pk):  
     post = get_object_or_404(Post, pk=pk)
-    #item = Post.objects.get(pk=post.id)
     if request.user == post.author:
         post.delete()
-    return redirect('post_list')        
+    return redirect('post_list') 
 
+@login_required
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -64,5 +63,4 @@ def add_comment_to_post(request, pk):
             return redirect('post_detail', pk=post.pk)
     else:
         form = CommentForm()
-
     return render(request, 'blog/add_comment_to_post.html', {'form': form})

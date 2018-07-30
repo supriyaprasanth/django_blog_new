@@ -3,13 +3,9 @@
     <head>
         <title>post_list page</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
 		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
 		<link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
-		
-
     </head>
     <body>
 	    <div class="page-header">
@@ -17,15 +13,12 @@
 		        <p class="top-menu"><a href="{% url 'post_new' %}">Add post</a></p>
 		        <br><br>
 		       	<p class="top-logout"> <a href="{% url 'logout' %}">Log out</a></p>
-
-		        <p class="top-menu1">Welcome, {{ user.username }} </p>
-
+		        <p class="top-menu1"><font size="6"><i>Welcome,</i></font> {{ user.username }} </p>
 		    {% else %}
 		        <a href="{% url 'login' %}" class="top-menu">Login</span></a>
 		    {% endif %}
 		    <div align="center"><h1><a href="/">Blog Post</a></h1></div>
 		</div>
-		
 	    <div class="content container">
 	        <div class="row">
 	            <div class="col-md-8">

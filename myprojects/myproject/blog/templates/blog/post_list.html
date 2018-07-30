@@ -7,7 +7,7 @@
                 {{ post.created_date }}
             </div>
             <div>
-                <h3><b> {{ post.author }}</b></h3>
+                <h3><b>Posted by: {{ post.author }}</b></h3>
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
