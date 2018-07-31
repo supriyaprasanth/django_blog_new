@@ -27,10 +27,16 @@ urlpatterns = [
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth import views
+from django.views.generic.base import TemplateView
+from django.urls import path
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/$', views.login, name='login'),
     url(r'^accounts/logout/$', views.logout, name='logout', kwargs={'next_page': '/'}),
     url(r'', include('blog.urls')),
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('register/', include('register.urls')),
+    #path('register/', include('django.contrib.auth.urls')),
+    
 ]
