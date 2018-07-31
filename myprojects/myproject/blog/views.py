@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def post_list(request):
-    posts = Post.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
+    posts = Post.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 @login_required
